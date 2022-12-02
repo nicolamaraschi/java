@@ -1,0 +1,39 @@
+import java.util.*;
+
+
+public class CustomArrayList<T> implements Iterable<T>{
+	public class Customiteratore <E> implements Iterator<E>{
+		
+		int indexPosition=0;
+		List<E> internalList;
+		
+		public Customiteratore(List<E> internalList){
+			this.internalList=internalList;
+		}
+		@Override
+		public boolean hasNext() {
+			if(internalList.size()>=indexPosition+1) return true;
+			else return false;
+		}
+
+		@Override
+		public E next() {
+			E val= internalList.get(indexPosition);
+			indexPosition++;
+			return val;
+		}
+			
+		
+	}
+	private List<T> miaLista= new ArrayList<>();
+	
+	public void add(T valore){
+		miaLista.add(valore);
+	}
+	@Override
+	public Iterator<T> iterator() {
+		
+		return new Customiteratore<T>(miaLista);
+	}
+
+}
