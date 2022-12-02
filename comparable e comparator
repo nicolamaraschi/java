@@ -1,0 +1,24 @@
+import java.util.Comparator;
+
+public class Country implements Comparable<Country>,Comparator <Country>{
+	private int area;
+	private String name;
+	private int polation;
+	public Country(int area, String name, int polation) {
+		super();
+		this.area = area;
+		this.name = name;
+		this.polation = polation;
+	}
+	@Override
+	public int compareTo(Country o) {
+		int result=this.area-o.area;
+		return result;
+	}
+	@Override
+	public int compare(Country o1, Country o2) {
+		int result=o1.area-o2.area;
+		return result;
+	}
+	
+}
